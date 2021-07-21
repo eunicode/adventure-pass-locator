@@ -45,6 +45,7 @@ https://stackoverflow.com/questions/38738905/google-chrome-debugger-in-visual-st
 Need server to use fetch()
 
 https://www.npmjs.com/package/live-server
+
 AJAX requests don't work with the file:// protocol due to security restrictions, i.e. you need a server if your site fetches content through JavaScript.
 
 https://stackoverflow.com/questions/58128248/how-can-i-resolve-the-error-url-scheme-must-be-http-or-https-for-cors-reque
@@ -53,4 +54,14 @@ https://stackoverflow.com/questions/68429059/fetch-json-local-file-get-404-not-f
 
 https://stackoverflow.com/questions/50007055/fetch-request-to-local-file-not-working
 
+Tania Rascia react tutorial - form
+
+https://stackoverflow.com/questions/37074543/get-text-between-tags-using-javascript
+
+https://stackoverflow.com/questions/2600343/why-does-document-queryselectorall-return-a-staticnodelist-rather-than-a-real-ar
+https://stackoverflow.com/questions/39300213/why-cant-i-use-map-on-the-result-of-a-queryselectorall
+
+https://stackoverflow.com/questions/25590486/creating-json-file-and-storing-data-in-it-with-javascript
+
+https://attacomsian.com/blog/nodejs-write-json-object-to-file
 */
