@@ -40,3 +40,8 @@
 button {
   font-size: calc(10px + 2vmin);
 }
+
+.App {
+  max-width: 40em;
+  margin: 0 auto;
+}
