@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import { Context } from "../Context";
+import { TableRow } from "./TableRow";
 
 const Table = () => {
   const { colNames } = useContext(Context);
@@ -13,6 +14,7 @@ const Table = () => {
           ))}
         </tr>
       </thead>
+      <TableRow />
       {/* {data.map((vendor, i) => (
         <div key={i}>{vendor.vendorname} </div>
       ))} */}

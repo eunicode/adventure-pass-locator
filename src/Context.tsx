@@ -24,16 +24,19 @@ const getColNames = (dom) => {
   const thead = dom.querySelector("thead");
   const theadNodes = thead.querySelectorAll("th");
 
-  let colNames = [...theadNodes].map((elm) => elm.innerText);
-
-  colNames = colNames.map((elm) => {
-    const lower = elm.toLowerCase();
-    const noSpace = lower.replace(/\s/, "");
-    return noSpace;
-  });
+  const colNames = [...theadNodes].map((elm) => elm.innerText);
 
   // console.log(colNames);
   return colNames;
+};
+
+const formatPropNames = (arr) => {
+  const formattedNames = arr.map((name) => {
+    const lower = name.toLowerCase();
+    const noSpace = lower.replace(/\s/, "");
+    return noSpace;
+  });
+  return formattedNames;
 };
 
 const getRows = (dom) => {
@@ -58,7 +61,7 @@ const getRows = (dom) => {
 };
 
 const buildJSON = (dom) => {
-  const colNamesArr = getColNames(dom);
+  const colNamesArr = formatPropNames(getColNames(dom));
 
   const rowArr = getRows(dom);
 
@@ -91,15 +94,19 @@ const Provider = (props) => {
   const [zipcode, setZipcode] = useState(90011);
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState([]);
-
+  const [colNames, setColNames] = useState([]);
+  // let colNames = []
   const fetchDOM = async () => {
     try {
       const adventureHTML = await fetchHTML(
         "./adventure-pass-vendors-list.html"
       );
       const arrObj = buildJSON(adventureHTML);
+
       setData(arrObj);
       setLoading(false);
+      setColNames(getColNames(adventureHTML));
+      // colNames = getColNames(adventureHTML);
     } catch (e) {
       console.log(e.message);
     }
@@ -115,7 +122,9 @@ const Provider = (props) => {
   // const handleZipCodeChange = () => {};
 
   return (
-    <Context.Provider value={{ zipcode, setZipcode, data, setData }}>
+    <Context.Provider
+      value={{ zipcode, setZipcode, data, setData, colNames, loading }}
+    >
       {props.children}
     </Context.Provider>
   );
