@@ -1,87 +1,15 @@
 // import { tableData } from "./main";
 import React, { useState, useEffect, useContext } from "react";
-
+import {
+  fetchHTML,
+  getColNames,
+  formatPropNames,
+  getRows,
+  buildJSON,
+} from "./utils/extract-data-from-dom";
 const Context = React.createContext();
 
-const zipcode = 90011;
-
-const fetchHTML = async (path) => {
-  try {
-    // promise resolves to Response interface
-    const readableStream = await fetch(path);
-    const text = await readableStream.text(); // promise resolves to string
-    const parser = new DOMParser();
-    const doc = parser.parseFromString(text, "text/html"); // returns HTMLDocument interface
-    // console.log("Running fetchHTML()");
-    // console.log(doc);
-    return doc;
-  } catch (error) {
-    console.log(`Fetch error: ${error}`);
-  }
-};
-
-const getColNames = (dom) => {
-  const thead = dom.querySelector("thead");
-  const theadNodes = thead.querySelectorAll("th");
-
-  const colNames = [...theadNodes].map((elm) => elm.innerText);
-
-  // console.log(colNames);
-  return colNames;
-};
-
-const formatPropNames = (arr) => {
-  const formattedNames = arr.map((name) => {
-    const lower = name.toLowerCase();
-    const noSpace = lower.replace(/\s/, "");
-    return noSpace;
-  });
-  return formattedNames;
-};
-
-const getRows = (dom) => {
-  const tbody = dom.querySelector("tbody");
-  const trNodeArr = [...tbody.querySelectorAll("tr")];
-
-  const trDataArr = [];
-
-  for (const rowNode of trNodeArr) {
-    const row = [...rowNode.children];
-    const subArr = [];
-
-    for (const data of row) {
-      subArr.push(data.innerText);
-    }
-
-    trDataArr.push(subArr);
-  }
-
-  console.log(trDataArr);
-  return trDataArr;
-};
-
-const buildJSON = (dom) => {
-  const colNamesArr = formatPropNames(getColNames(dom));
-
-  const rowArr = getRows(dom);
-
-  const tableJSONArr = [];
-
-  for (const row of rowArr) {
-    const rowObj = {};
-
-    for (const [i, data] of row.entries()) {
-      const prop = colNamesArr[i];
-      rowObj[prop] = data;
-    }
-
-    tableJSONArr.push(rowObj);
-  }
-
-  console.log(tableJSONArr);
-  // setter(false);
-  return tableJSONArr;
-};
+// const zipcode = 90011;
 
 // async wrapper function
 // DOMParser async(?)

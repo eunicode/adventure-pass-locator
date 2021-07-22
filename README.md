@@ -21,11 +21,9 @@ The official government [forest service website](https://www.fs.usda.gov/detailf
 
 ## To do
 
-- Where to put fetch call when using Context
-- Move API call to useEffect()
 - Scrape website with Python and create JSON file
 - Figure out Google Maps API
-- Refresh page after form submit? / Update table after form submit. Look at yelp
+- Add type annotation
 
 LATER
 
@@ -60,3 +58,26 @@ npm run dev
 This app was scaffolded with Vite and the react-ts template preset.
 
 The adventure pass vendor data was obtained by saving a webpage as an html file and parsing it.
+
+## NOTES
+
+How to use fetch() to put data into Context?
+
+One way is to define a function that calls fetch() inside of Provider. Then call the fetch function inside of useEffect's callback function. useEffect's callback function is where we perform actions with side effects. By default, useEffect's callback function runs after every render. Limit re-renders by providing a dependency array. An empty dependency array means the side effect is run only after first render.
+
+How to use Context?
+
+1. Import React, useContext and any other hooks you'll use.
+2. Create a Context object with createContext(). It will have a Provider property.
+3. Define your Provider function component.
+4. Use useState to create a state variable and stateSetter function.
+5. Return a HOC `Context.Provider` component that wraps around its `props.children`.
+6. Pass the `Context.Provider` a `value` prop that holds an object of "global" data.
+7. Export Context object and Provider function component.
+8. In your entry file (index.js, main.js), import your Provider function component.
+9. Call it and wrap it around your app. Don't forget this step.
+10. Use data in context by calling `useContext(Context)` and destructuring the `value` object in your function component.
+
+Refresh page after form submit / update table after form submit?
+
+React automatically re-renders when state changes.
