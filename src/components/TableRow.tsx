@@ -2,11 +2,11 @@ import React, { useContext } from "react";
 import { Context } from "../Context";
 
 export const TableRow = () => {
-  const { data } = useContext(Context);
+  const { jsonData } = useContext(Context);
 
   return (
     <tbody>
-      {data.map((row, i) => {
+      {jsonData.map((row, i) => {
         return (
           <tr>
             <td>{row.vendorname}</td>

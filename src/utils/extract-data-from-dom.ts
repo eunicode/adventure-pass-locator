@@ -137,7 +137,7 @@ ASYNC
 Is DOMParser async? 
 Async function wrapper
 // const sequential = async (setter) => {
-//   const adventureHTML = await getDOM("./adventure-pass-vendors-list.html");
+//   const vendorDOM = await getDOM("./adventure-pass-vendors-list.html");
 // };
 // export const tableData = sequential();
 */

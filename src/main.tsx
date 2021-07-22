@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
-import { Provider } from "./Context";
+import { AppProvider } from "./Context";
 // const getDOM = async (path) => {
 //   try {
 //     // promise resolves to Response interface
@@ -57,11 +57,11 @@ import { Provider } from "./Context";
 
 // // DOMParser async(?)
 // const sequential = async () => {
-//   const adventureHTML = await getDOM("./adventure-pass-vendors-list.html");
+//   const vendorDOM = await getDOM("./adventure-pass-vendors-list.html");
 
-//   const colNamesArr = getTheadText(adventureHTML);
+//   const colNamesArr = getTheadText(vendorDOM);
 
-//   const rowArr = getRows(adventureHTML);
+//   const rowArr = getRows(vendorDOM);
 
 //   const JSONArr = [];
 
@@ -85,9 +85,9 @@ import { Provider } from "./Context";
 
 ReactDOM.render(
   <React.StrictMode>
-    <Provider>
+    <AppProvider>
       <App />
-    </Provider>
+    </AppProvider>
   </React.StrictMode>,
   document.getElementById("root")
 );

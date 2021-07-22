@@ -4,7 +4,7 @@ import { TableRow } from "./TableRow";
 
 const Table = () => {
   const { colNames } = useContext(Context);
-  // console.log({ data });
+  // console.log({ jsonData });
   return (
     <table>
       <thead>
@@ -15,7 +15,7 @@ const Table = () => {
         </tr>
       </thead>
       <TableRow />
-      {/* {data.map((vendor, i) => (
+      {/* {jsonData.map((vendor, i) => (
         <div key={i}>{vendor.vendorname} </div>
       ))} */}
     </table>

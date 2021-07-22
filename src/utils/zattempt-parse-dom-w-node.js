@@ -3808,7 +3808,7 @@ const getRows = (dom) => {
 
 // DOMParser async(?)
 const sequential = async () => {
-  // const adventureHTML = await getDOM("./adventure-pass-vendors-list.html");
+  // const vendorDOM = await getDOM("./adventure-pass-vendors-list.html");
 
   const colNamesArr = getTheadText(dom);
 
