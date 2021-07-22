@@ -3769,7 +3769,7 @@ const dom = new JSDOM(`<!DOCTYPE html><table id='aptable'>
 </tbody>
 </table>`);
 
-const getColNames = (dom) => {
+const getTheadText = (dom) => {
   const thead = dom.window.document.querySelector("thead");
   const theadNodes = thead.querySelectorAll("th");
 
@@ -3808,9 +3808,9 @@ const getRows = (dom) => {
 
 // DOMParser async(?)
 const sequential = async () => {
-  // const adventureHTML = await fetchHTML("./adventure-pass-vendors-list.html");
+  // const adventureHTML = await getDOM("./adventure-pass-vendors-list.html");
 
-  const colNamesArr = getColNames(dom);
+  const colNamesArr = getTheadText(dom);
 
   const rowArr = getRows(dom);
 

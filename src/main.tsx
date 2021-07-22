@@ -3,14 +3,14 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 import { Provider } from "./Context";
-// const fetchHTML = async (path) => {
+// const getDOM = async (path) => {
 //   try {
 //     // promise resolves to Response interface
 //     const readableStream = await fetch(path);
 //     const text = await readableStream.text(); // promise resolves to string
 //     const parser = new DOMParser();
 //     const doc = parser.parseFromString(text, "text/html"); // returns HTMLDocument interface
-//     // console.log("Running fetchHTML()");
+//     // console.log("Running getDOM()");
 //     // console.log(doc);
 //     return doc;
 //   } catch (error) {
@@ -18,7 +18,7 @@ import { Provider } from "./Context";
 //   }
 // };
 
-// const getColNames = (dom) => {
+// const getTheadText = (dom) => {
 //   const thead = dom.querySelector("thead");
 //   const theadNodes = thead.querySelectorAll("th");
 
@@ -57,13 +57,13 @@ import { Provider } from "./Context";
 
 // // DOMParser async(?)
 // const sequential = async () => {
-//   const adventureHTML = await fetchHTML("./adventure-pass-vendors-list.html");
+//   const adventureHTML = await getDOM("./adventure-pass-vendors-list.html");
 
-//   const colNamesArr = getColNames(adventureHTML);
+//   const colNamesArr = getTheadText(adventureHTML);
 
 //   const rowArr = getRows(adventureHTML);
 
-//   const tableJSONArr = [];
+//   const JSONArr = [];
 
 //   for (const [i, row] of rowArr.entries()) {
 //     const rowObj = {};
@@ -73,11 +73,11 @@ import { Provider } from "./Context";
 //       rowObj[prop] = data;
 //     }
 
-//     tableJSONArr.push(rowObj);
+//     JSONArr.push(rowObj);
 //   }
 
-//   console.log(tableJSONArr);
-//   return tableJSONArr;
+//   console.log(JSONArr);
+//   return JSONArr;
 // };
 
 // export const tableData = sequential();
