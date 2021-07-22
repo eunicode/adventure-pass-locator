@@ -2,14 +2,21 @@ import React, { useContext } from "react";
 import { Context } from "../Context";
 
 const Table = () => {
-  const { data } = useContext(Context);
-  console.log({ data });
+  const { colNames } = useContext(Context);
+  // console.log({ data });
   return (
-    <>
-      {data.map((vendor, i) => (
+    <table>
+      <thead>
+        <tr>
+          {colNames.map((name, i) => (
+            <th key={i}>{name}</th>
+          ))}
+        </tr>
+      </thead>
+      {/* {data.map((vendor, i) => (
         <div key={i}>{vendor.vendorname} </div>
-      ))}
-    </>
+      ))} */}
+    </table>
   );
 };
 
