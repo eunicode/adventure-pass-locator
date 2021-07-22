@@ -2,7 +2,7 @@
 
 ## Description
 
-The official government [forest service website](https://www.fs.usda.gov/detailfull/r5/passes-permits/recreation/?cid=STELPRDB5181410&width=full) does not provide a way to find the nearest adventure pass vendor. This web app provides a way to find the nearest adventure pass vendor.
+The official government [forest service website](https://www.fs.usda.gov/detailfull/r5/passes-permits/recreation/?cid=STELPRDB5181410&width=full) does not provide a way to find the nearest Adventure Pass vendor. This web app provides a way to find the nearest Adventure Pass vendor in Southern California.
 
 ## Demo
 
@@ -21,12 +21,19 @@ The official government [forest service website](https://www.fs.usda.gov/detailf
 
 ## To do
 
-- Create a relational database
-- Web scraping with Python
-- Switch to Bing maps API
+- Where to put fetch call when using Context
+- Move API call to useEffect()
+- Scrape website with Python and create JSON file
+- Figure out Google Maps API
+- Refresh page after form submit? / Update table after form submit. Look at yelp
 
-  1.0 - straight line distance between two zip codes
-  2.0 - route distance between two zip codes
+LATER
+
+- Create my own zipcode and latitude/longitude database
+- Switch to Bing maps API
+- Create a relational database
+- v. 1.0 - straight line distance between two zip codes
+- v. 2.0 - route distance between two zip codes
 
 ## Setup
 
@@ -53,11 +60,3 @@ npm run dev
 This app was scaffolded with Vite and the react-ts template preset.
 
 The adventure pass vendor data was obtained by saving a webpage as an html file and parsing it.
-
-BRAINSTORMING
-Store data table in
-Array of arrays
-Array of objects
-
-NOTES
-Can also fetch HTML and use DOMParser
