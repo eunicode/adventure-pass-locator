@@ -28,7 +28,7 @@ const App = () => {
       </section>
       <section>
         {loading ? (
-          <h1 className="text-center">...fetching table</h1>
+          <h2 className="table-loading">...Fetching table</h2>
         ) : (
           <Table />
         )}
@@ -39,3 +39,13 @@ const App = () => {
 };
 
 export default App;
+
+/* 
+ERRORS
+
+can't perform a react state update on an unmounted component
+
+WAITING FOR FETCH() FALLBACK COMPONENT
+
+If loading is complete, instantiate Table. Else return a loading message.
+*/

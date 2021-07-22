@@ -1,23 +1,12 @@
-import React, { useContext } from "react";
-import { Context } from "../Context";
-import { TableRow } from "./TableRow";
+import React from "react";
+import TableRow from "./TableRow";
+import TableHeader from "./TableHeader";
 
 const Table = () => {
-  const { colNames } = useContext(Context);
-  // console.log({ jsonData });
   return (
     <table>
-      <thead>
-        <tr>
-          {colNames.map((name, i) => (
-            <th key={i}>{name}</th>
-          ))}
-        </tr>
-      </thead>
+      <TableHeader />
       <TableRow />
-      {/* {jsonData.map((vendor, i) => (
-        <div key={i}>{vendor.vendorname} </div>
-      ))} */}
     </table>
   );
 };

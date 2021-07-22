@@ -23,7 +23,10 @@ The official government [forest service website](https://www.fs.usda.gov/detailf
 
 - Scrape website with Python and create JSON file
 - Figure out Google Maps API
+- Show 25 locations at a time, with arrows that allow users to see next 25.
 - Add type annotation
+- Option to sort alphabetically, by zipcode and city
+- Show map with markers for vendors
 
 LATER
 

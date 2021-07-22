@@ -90,10 +90,8 @@ https://github.com/eunicode/tech-doc/blob/master/src/js/main-section.js
 Get text between tags
 https://stackoverflow.com/questions/37074543/get-text-between-tags-using-javascript
 
-React Form
-Tania Rascia react tutorial 
-
 Static NodeList is not iterable
+
 https://stackoverflow.com/questions/2600343/why-does-document-queryselectorall-return-a-staticnodelist-rather-than-a-real-ar
 
 https://stackoverflow.com/questions/39300213/why-cant-i-use-map-on-the-result-of-a-queryselectorall
@@ -104,6 +102,10 @@ ReferenceError: document is not defined
 https://stackoverflow.com/questions/24647839/referenceerror-document-is-not-defined-in-plain-javascript/24648001
 
 This happened with me because I was using Next JS which has server side rendering. When you are using server side rendering there is no browser. Hence, there will not be any variable window or document. Hence this error shows up.
+
+GET HTML FILE WITH FETCH()
+
+https://gomakethings.com/getting-html-with-fetch-in-vanilla-js/
 
 Debug fetch()/DOM in html file, in Chrome browser
 
