@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { getDOM, getTheadText, buildJSON } from "./utils/extract-data-from-dom";
+import { getDOM, getTheadText, buildJSON } from "./utils/scrape-w-browser";
 
 // Create Context object. It has a Provider property we will use.
 const Context = React.createContext();

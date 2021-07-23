@@ -16,7 +16,8 @@ The government [forest service website](https://www.fs.usda.gov/detailfull/r5/pa
 ## Tech Stack
 
 - React
-<!-- ## APIs -->
+
+## APIs
 
 ## Changelog
 
@@ -24,7 +25,6 @@ The government [forest service website](https://www.fs.usda.gov/detailfull/r5/pa
 
 ## To do
 
-- Scrape website with Python and create JSON file
 - Figure out Google Maps API
 - Show 25 locations at a time, with arrows that allow users to see next 25.
 - Add type annotation
@@ -38,6 +38,7 @@ LATER
 - Create a relational database
 - v. 1.0 - straight line distance between two zip codes
 - v. 2.0 - route distance between two zip codes
+- Scrape website with Python and create JSON file
 
 ## Setup
 
