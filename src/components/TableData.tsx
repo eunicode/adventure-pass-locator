@@ -1,8 +1,8 @@
 import React from "react";
 
 const TableData = ({ row }) => {
-  // const { jsonData } = useContext(Context);
-  console.log("hi");
+  // console.log("hi");
+
   const iterateObject = (vendor) => {
     const dataArr = [];
 

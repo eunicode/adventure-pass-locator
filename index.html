@@ -1,13 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/src/favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite App</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/src/favicon.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Adventure Pass Locator</title>
+</head>
+
+<body>
+  <div id="root"></div>
+  <script type="module" src="/src/main.tsx"></script>
+</body>
+
 </html>
+
+<!-- 
+BUILD 
+
+Static asset handling
+
+My adventure-pass-vendors-list.html file
+
+Cannot GET /adventure-pass-vendors-list.html
+:5000/adventure-pass-vendors-list.html 
+Failed to load resource. Server responded with status of 404 not found
+Cannot read property 'querySelectorAll' of null
+
+https://vitejs.dev/config/#assetsinclude
+https://github.com/vitejs/vite/blob/main/packages/vite/src/node/constants.ts
+assetsInclude is an extension string
+
+https://vitejs.dev/guide/static-deploy.html
+-->

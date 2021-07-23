@@ -48,4 +48,25 @@ can't perform a react state update on an unmounted component
 WAITING FOR FETCH() FALLBACK COMPONENT
 
 If loading is complete, instantiate Table. Else return a loading message.
+
+EXPORT
+Allowed
+export const = ...
+export default <expression>
+export default function () {...}
+
+Not allowed
+export default const = ...
+
+Why Is `Export Default Const` invalid?
+https://stackoverflow.com/questions/36261225/why-is-export-default-const-invalid
+
+Correct
+const Tab = connect()();
+export default Tab;
+
+Incorrect
+export default const Tab = connect()()
+
+default keyword expects a HoistableDeclaration, ClassDeclaration or AssignmentExpression to follow it.
 */

@@ -2,13 +2,16 @@
 
 ## Description
 
-The official government [forest service website](https://www.fs.usda.gov/detailfull/r5/passes-permits/recreation/?cid=STELPRDB5181410&width=full) does not provide a way to find the nearest Adventure Pass vendor. This web app provides a way to find the nearest Adventure Pass vendor in Southern California.
+The government [forest service website](https://www.fs.usda.gov/detailfull/r5/passes-permits/recreation/?cid=STELPRDB5181410&width=full) does not provide a way to find the nearest forest recreation pass vendor. This web app provides a way to find recreation pass vendors near you.
 
 ## Demo
 
 <!-- ![Image of Yaktocat](https://octodex.github.com/images/yaktocat.png) -->
 
 ## Features
+
+- Mobile first, responsive design
+-
 
 ## Tech Stack
 
@@ -54,6 +57,18 @@ Run project
 
 ```
 npm run dev
+```
+
+Build static site
+
+```
+npm run build
+```
+
+Preview build
+
+```
+npm run preview
 ```
 
 ## Attribution

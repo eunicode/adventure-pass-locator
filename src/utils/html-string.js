@@ -1,23 +1,4 @@
-// // import { mainModule } from "process";
-// import { tableDataJSON } from '../main.js'
-// import fs from 'fs'
-// // const fs = require("fs");
-
-// fs.writeFile("vendor.json", tableDataJSON, (err, result) => {
-//   if (err) {
-//     console.log(`Error: ${err}`);
-//   }
-// });
-
-// import { parse } from 'node-html-parser';
-// import everything from 'node-html-parser';
-// const { parse } = everything
-
-// const jsdom = require("jsdom");
-import jsdom from 'jsdom'
-const { JSDOM } = jsdom;
-
-const dom = new JSDOM(`<!DOCTYPE html><table id='aptable'>
+const html = `<!DOCTYPE html><table id='aptable'>
 <thead>
     <tr>
         <th>Vendor Name</th>
@@ -3767,71 +3748,6 @@ const dom = new JSDOM(`<!DOCTYPE html><table id='aptable'>
         <td>Annual, Daily, Secondary</td>
     </tr>
 </tbody>
-</table>`);
+</table>`
 
-const getTheadText = (dom) => {
-  const thead = dom.window.document.querySelector("thead");
-  const theadNodes = thead.querySelectorAll("th");
-
-  let colNames = [...theadNodes].map((elm) => elm.innerText);
-
-  colNames = colNames.map((elm) => {
-    const lower = elm.toLowerCase();
-    const noSpace = lower.replace(/\s/, "");
-    return noSpace;
-  });
-
-  // console.log(colNames);
-  return colNames;
-};
-
-const getRows = (dom) => {
-  const tbody = dom.window.document.querySelector("tbody");
-  const trNodeArr = [...tbody.querySelectorAll("tr")];
-
-  const trArr = [];
-
-  for (const rowNode of trNodeArr) {
-    const row = [...rowNode.children];
-    const subArr = [];
-
-    for (const data of row) {
-      subArr.push(data.innerText);
-    }
-
-    trArr.push(subArr);
-  }
-
-  console.log(trArr);
-  return trArr;
-};
-
-// DOMParser async(?)
-const sequential = async () => {
-  // const vendorDOM = await getDOM("./adventure-pass-vendors-list.html");
-
-  const colNamesArr = getTheadText(dom);
-
-  const rowArr = getRows(dom);
-
-  const tableArr = [];
-
-  for (const [i, row] of rowArr.entries()) {
-    const rowObj = {};
-
-    for (const [i, data] of row.entries()) {
-      const prop = colNamesArr[i];
-      rowObj[prop] = data;
-    }
-
-    tableArr.push(rowObj);
-  }
-
-  console.log(tableArr);
-};
-
-const tableData = sequential();
-
-export const tableDataJSON = JSON.stringify(tableData);
-
-console.log(tableData)
+export default html
