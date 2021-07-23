@@ -1,37 +1,36 @@
 import React, { useState, useEffect } from "react";
-import { getDOM, getTheadText, buildJSON } from "./utils/scrape-w-browser";
+// import { getDOM, getTheadText, buildJSON } from "./utils/scrape-w-browser";
+// import { tHeaders } from "./utils/scrape-w-node";
 
 // Create Context object. It has a Provider property we will use.
 const Context = React.createContext();
-
-// const zipcode = 90011;
 
 const AppProvider = (props) => {
   const [zipcode, setZipcode] = useState(90011);
   const [loading, setLoading] = useState(true);
   const [jsonData, setJsonData] = useState([]);
   const [colNames, setColNames] = useState([]);
-  // const [propNames, setPropNames] = useState([])
 
   const fetchDataAsyncWrapper = async () => {
     try {
-      const vendorDOM = await getDOM("./adventure-pass-vendors-list.html"); // internal fetch() call
+      const vendorResponse = await fetch("/src/utils/vendors.json");
+      const vendorJson = await vendorResponse.json();
+      const vendorHeaderResponse = await fetch(
+        "src/utils/vendors-headers.json"
+      );
+      const vendorHeaderJson = await vendorHeaderResponse.json();
 
-      const vendorJson = buildJSON(vendorDOM);
-      setColNames(getTheadText(vendorDOM));
-      // setLoading(false);
+      setColNames(vendorHeaderJson);
       setJsonData(vendorJson);
+      setLoading(false);
     } catch (e) {
       console.log(e.message);
     }
   };
 
   useEffect(() => {
-    console.log("useEffect called");
+    console.log("async useEffect called");
     fetchDataAsyncWrapper();
-    // const jsonData = fetchDOM();
-    // setJsonData(jsonData);
-    setLoading(false);
   }, []);
 
   // const handleZipCodeChange = () => {};
@@ -48,32 +47,6 @@ const AppProvider = (props) => {
 export { AppProvider, Context };
 
 /* 
-
-We will probably need to define a wrapper function inside of AppProvider. 
-This is bc functions defined inside of AppProvider will have access to state, stateSetters, etc.
-
-We can't do this bc we have to wait for fetch, or is it bc we have to wait for component to mount
-or is it another reason? 
-```A
-let colNames = []
-colNames = getTheadText(vendorDOM);
-```
-```B
-const [colNames, setColNames] = useState([]);
-```
-
-My answer: It's bc we have to wait for fetch() 
-```
-const myAsyncFunc = async() => {
-    let data = await fetch(url).json()
-    return data
-}
-
-let json = myAsyncFunc()
-
-console.log( json ) // <-- this will run automatically, instead of waiting
-```
-
 How to: 
 Call a stateSetter inside of useEffect's callback function when the fetch is complete
   useEffect(() => {
@@ -99,9 +72,42 @@ One of the popular cases that using useState inside of useEffect will not cause 
 which means that the effect function should be called once: after the first mount/render only. 
 This is used widely when you're doing data fetching in a component and you want to save the request data in the component's state.
 
+We can't do this bc we have to wait for fetch, or is it bc we have to wait for component to mount
+or is it another reason? 
+```A
+let colNames = []
+colNames = getTheadText(vendorDOM);
+```
+```B
+const [colNames, setColNames] = useState([]);
+```
+
+My answer: It's bc we have to wait for fetch() 
+```
+const myAsyncFunc = async() => {
+    let data = await fetch(url).json()
+    return data
+}
+
+let json = myAsyncFunc()
+
+console.log( json ) // <-- this will run automatically, instead of waiting
+```
+
 ASYNC FUNCTIONS
 
 async functions always return promises. 
+
+Resonse.json() is asynchronous. It returns a promise. It needs `await`. 
+const response = await fetch('/movies');
+const movies = await response.json(); 
+
+ASYNC - HOW TO EXPORT DATA FROM FETCH
+
+https://stackoverflow.com/questions/48380991/export-data-returned-by-fetch-from-a-separate-js-file-in-react
+https://stackoverflow.com/questions/65563912/how-to-export-the-response-data-obtained-from-a-get-api-using-fetch-from-one-mod
+You can't. It's asynchronous. It's a promise. 
+Use then() or async warpper function.
 
 ASYNC FUNCTIONS + USEEFFECT()
 

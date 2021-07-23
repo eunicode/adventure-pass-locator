@@ -7,5 +7,7 @@ export default defineConfig({
   build: {
     sourcemap: true,
   },
-  base: "/adventure-pass-locator/",
+  // base: "/adventure-pass-locator/",
+  base:
+    process.env.NODE_ENV === "production" ? "/adventure-pass-locator/" : "/",
 });

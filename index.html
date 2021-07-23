@@ -29,7 +29,18 @@ Cannot read property 'querySelectorAll' of null
 
 https://vitejs.dev/config/#assetsinclude
 https://github.com/vitejs/vite/blob/main/packages/vite/src/node/constants.ts
+
 assetsInclude is an extension string
 
 https://vitejs.dev/guide/static-deploy.html
+
+FETCH
+
+fetch local file only works when it's in the same directory as index.html
+
+BASE URL FOR DEVELOPMENT AND DEPLOYMENT
+
+https://github.com/vitejs/vite/issues/2114
+
+base: process.env.NODE_ENV === 'production' ? '/repo-name/' : '/'
 -->

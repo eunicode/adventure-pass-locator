@@ -1,4 +1,4 @@
-import html from "./html-string.js";
+// import html from "./html-string.js";
 import jsdom from "jsdom";
 import fs from "fs";
 import fetch from 'node-fetch'
@@ -86,15 +86,23 @@ const asyncWrapper = async () => {
   let htmlString = await fetchHtmlString('https://www.fs.fed.us/portaldata/r5/ap/r5-ap-vendors.php') 
   let dom = new JSDOM(htmlString) // Create DOM from fetched text
   // let dom = new JSDOM(html); // Create DOM from imported string
+  let tHeaders = getTheadText(dom);
+  let tHeadersJson = JSON.stringify(tHeaders)
   let vendorJs = buildJSON(dom)
   let vendorJson = JSON.stringify(vendorJs);
   // console.log(vendorJson);
 
-  // fs.writeFile("vendors.json", vendorJson, (err) => {
-  //   if (err) {
-  //     console.log(`Error: ${err}`);
-  //   }
-  // });
+  fs.writeFile("vendors.json", vendorJson, (err) => {
+    if (err) {
+      console.log(`Error: ${err}`);
+    }
+  });
+
+  fs.writeFile("vendors-headers.json", tHeadersJson, (err) => {
+    if (err) {
+      console.log(`Error: ${err}`)
+    }
+  })
 }
 
 // Run this file with Node in terminal `node scrape-w-node.js` to create JSON file
@@ -114,4 +122,9 @@ Reason: innerText doesn't work with JSDom
 Use textContent instead
 https://github.com/jsdom/jsdom/issues/1245
 
+REFERENCEERROR: GLOBAL IS NOT DEFINED IN JSDOM.JS
+
+Solution: Don't reference this file (scrape-w-node.js) at all. 
+I had exported the array of vendor headers to Context, and it lead to errors. 
+Workaround is to write array of vendor headers into JSON file. 
 */
