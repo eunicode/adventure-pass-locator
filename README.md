@@ -25,17 +25,21 @@ The government [forest service website](https://www.fs.usda.gov/detailfull/r5/pa
 
 ## To do
 
-- Figure out Google Maps API
+- Create graph class, graphs
+- Sorting algorithm: Timsort, Heapsort, Mergesort, Quicksort
 - Show 25 locations at a time, with arrows that allow users to see next 25.
 - Add type annotation
+- Add Redux
+- Add tests
 - Option to sort alphabetically, by zipcode and city
 - Show map with markers for vendors
+- Create classes to package methods with data
 
 LATER
 
 - Create my own zipcode and latitude/longitude database
-- Switch to Bing maps API
 - Create a relational database
+- Figure out Google Maps Distance Matrix API / Bing maps API
 - v. 1.0 - straight line distance between two zip codes
 - v. 2.0 - route distance between two zip codes
 - Scrape website with Python and create JSON file
@@ -100,3 +104,9 @@ How to use Context?
 Refresh page after form submit / update table after form submit?
 
 React automatically re-renders when state changes.
+
+Fetch/get text data with
+
+- html string in js file
+- local html file
+- url

@@ -1,4 +1,4 @@
-// import html from "./html-string.js";
+// import html from "../data/html-string.js";
 import jsdom from "jsdom";
 import fs from "fs";
 import fetch from 'node-fetch'
@@ -127,4 +127,8 @@ REFERENCEERROR: GLOBAL IS NOT DEFINED IN JSDOM.JS
 Solution: Don't reference this file (scrape-w-node.js) at all. 
 I had exported the array of vendor headers to Context, and it lead to errors. 
 Workaround is to write array of vendor headers into JSON file. 
+
+WRITING SCRAPED DATA TO JSON W/ PYTHON
+https://stackoverflow.com/questions/58419896/writing-scraped-data-into-json-using-python
+https://www.tutorialspoint.com/python_web_scraping/python_web_scraping_data_processing.htm
 */

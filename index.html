@@ -37,6 +37,38 @@ https://vitejs.dev/guide/static-deploy.html
 FETCH
 
 fetch local file only works when it's in the same directory as index.html
+Edit: Not true. Wrong file path. 
+
+fetch(local file) works in development, but not in production. 
+There's probably something in the build process that causes this, like optimization/bundling/minification. For example, I no longer see vendors.json file. 
+With create-react-app, we can put static assets in public folder. 
+Doesn't work with vite. 
+Vite will copy files in public folder to the dist folder. 
+
+BEFORE
+public folder
+- vendors-headers.json
+- vendors.json
+
+AFTER
+dist folder 
+- assets folder (css, js)
+- index.html
+- vendors-headers.json
+- vendors.json
+
+Therefore, if you use fetch()
+In development, the path needs to be "/public/vendors.json"
+In production, the path needs to be "/vendors.json"
+
+Look for build options. 
+https://rollupjs.org/guide/en/#big-list-of-options
+
+Don't use fetch() with local files. Use import instead. 
+Only use fetch() with local files if you're going to replace with a url later. 
+
+Fetch request to local file not working
+https://stackoverflow.com/questions/50007055/fetch-request-to-local-file-not-working?noredirect=1&lq=1
 
 BASE URL FOR DEVELOPMENT AND DEPLOYMENT
 

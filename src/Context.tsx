@@ -13,10 +13,15 @@ const AppProvider = (props) => {
 
   const fetchDataAsyncWrapper = async () => {
     try {
-      const vendorResponse = await fetch("/src/utils/vendors.json");
+      const vendorResponse = await fetch("/src/data/vendors.json", {
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+      });
       const vendorJson = await vendorResponse.json();
       const vendorHeaderResponse = await fetch(
-        "src/utils/vendors-headers.json"
+        "/src/data/vendors-headers.json"
       );
       const vendorHeaderJson = await vendorHeaderResponse.json();
 
