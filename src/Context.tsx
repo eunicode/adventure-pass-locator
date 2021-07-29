@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import vendorsTable from "./data/vendors.js";
+import vendorsHeaders from "./data/vendors-headers.js";
 // import { getDOM, getTheadText, buildJSON } from "./utils/scrape-w-browser";
 // import { tHeaders } from "./utils/scrape-w-node";
 
@@ -13,18 +15,21 @@ const AppProvider = (props) => {
 
   const fetchDataAsyncWrapper = async () => {
     try {
-      const vendorResponse = await fetch("/src/data/vendors.json", {
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-        },
-      });
-      const vendorJson = await vendorResponse.json();
-      const vendorHeaderResponse = await fetch(
-        "/src/data/vendors-headers.json"
-      );
-      const vendorHeaderJson = await vendorHeaderResponse.json();
+      // const vendorResponse = await fetch("/src/data/vendors.json", {
+      //   headers: {
+      //     "Content-Type": "application/json",
+      //     Accept: "application/json",
+      //   },
+      // });
 
+      // const vendorJson = await vendorResponse.json();
+      // const vendorHeaderResponse = await fetch(
+      //   "/src/data/vendors-headers.json"
+      // );
+      // const vendorHeaderJson = await vendorHeaderResponse.json();
+      // =================================
+      const vendorJson = vendorsTable;
+      const vendorHeaderJson = vendorsHeaders;
       setColNames(vendorHeaderJson);
       setJsonData(vendorJson);
       setLoading(false);
