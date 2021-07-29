@@ -17,15 +17,15 @@ let missing = vendorsTable.filter((vendor) => vendor.uncertainAddress);
 export const vendorZipcodes = vendorsTable.map((elm) => elm.zip.slice(0, 5));
 // console.log(vendorZipcodes);
 
-console.log("length", vendorZipcodes.length); // 467
+// console.log("length", vendorZipcodes.length); // 467
 
 // Array of unique vendor zipcodes
 export const vendorZipcodesUnique = [...new Set(vendorZipcodes)];
-console.log("lengthUnique", vendorZipcodesUnique.length); // 287
+// console.log("lengthUnique", vendorZipcodesUnique.length); // 287
 
 // Vendors table sorted by zipcode, ascending
 export const vendorZipcodesSorted = mergeSort(vendorZipcodesUnique);
-console.dir(vendorZipcodesSorted, { maxArrayLength: null });
+// console.dir(vendorZipcodesSorted, { maxArrayLength: null });
 
 export const zipHash = createGraphs(dist1D)
 

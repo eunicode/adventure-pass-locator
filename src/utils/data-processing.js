@@ -27,7 +27,7 @@ const merge = (leftArray, rightArray) => {
   return sortedArray.concat(leftArray).concat(rightArray);
 };
 
-const createGraphs = (arr) => {
+export const createGraphs = (arr) => {
   let currentZip = 90001;
   let zipDB = {};
 
@@ -41,7 +41,7 @@ const createGraphs = (arr) => {
   return zipDB;
 };
 
-let test = [
+let testDist1D = [
   { z1: 90001, z2: 92503, d: 46.7069903542 },
   { z1: 90001, z2: 93015, d: 47.494265288 },
   { z1: 90001, z2: 92624, d: 49.549911907 },
@@ -51,5 +51,48 @@ let test = [
   { z1: 90003, z2: 90303, d: 4.8776690268 },
 ];
 
-let testa = createGraphs(test);
-console.log(testa);
+// let testDist2D = createGraphs(testDist1D);
+// console.log(testDist2D);
+
+let test = {
+  '90001': [
+    [ 92503, 46.7069903542 ],
+    [ 93015, 47.494265288 ],
+    [ 92624, 49.549911907 ]
+  ],
+  '90002': [ [ 90255, 2.6753391126 ], [ 90201, 4.5615316014 ] ],
+  '90003': [ [ 90303, 4.8776690268 ], [ 90303, 4.8776690268 ] ]
+}
+
+let test2 = [
+  {
+    "vendorname": "4 Points Liquor",
+    "address": "5510 Pearblossom Hwy",
+    "city": "Palmdale",
+    "zip": "92503",
+    "phone": "661-533-1366",
+    "products": "Annual, Daily, Secondary"
+  }]
+
+export const findVendors = (zipcode, zipHash, jsonData) => {
+  let edgesCopy = JSON.parse(JSON.stringify(zipHash[zipcode]))
+  // console.log(edgesCopy)
+
+  edgesCopy.sort( (firstEl, secEl) => firstEl[1] - secEl[1])
+  console.log(edgesCopy)
+  // let firstFive = edgesCopy.slice(0, 5).map( (elm) => elm[1])
+  // let firstFive = edgesCopy.slice(0, 5)
+  // console.log(firstFive)
+
+  for (let vendor of jsonData) {
+    // if (vendor.zip == `${firstFive[1]}`) {
+    if (vendor.zip == edgesCopy[0][0]) {
+      console.log('ran')
+      return `${vendor.vendorname} ${vendor.address} ${vendor.city} ${vendor.zip} ${vendor.phone} ${vendor.products}`
+    }
+  }
+}
+
+// let test3 = findVendors(90001, test, test2)
+// console.log(test3)
+

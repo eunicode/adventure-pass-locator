@@ -7,10 +7,11 @@ import Header from "./components/Header";
 import Introduction from "./components/Introduction";
 import Form from "./components/Form";
 import Table from "./components/Table";
+import Results from "./components/Results";
 
 const App = () => {
   const appContext = useContext(Context);
-  const { loading } = appContext;
+  const { loading, submitted } = appContext;
   return (
     <div className="App">
       <section>
@@ -20,6 +21,7 @@ const App = () => {
       <section>
         <Form />
       </section>
+      <section>{submitted ? <Results /> : <div></div>}</section>
       <section>
         {loading ? (
           <h2 className="table-loading">...Fetching table</h2>

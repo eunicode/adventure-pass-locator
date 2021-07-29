@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import vendorsTable from "./data/vendors.js";
 import vendorsHeaders from "./data/vendors-headers.js";
+import { zipHash } from "./data/data-exports.js";
 // import { getDOM, getTheadText, buildJSON } from "./utils/scrape-w-browser";
 // import { tHeaders } from "./utils/scrape-w-node";
 
@@ -12,6 +13,9 @@ const AppProvider = (props) => {
   const [loading, setLoading] = useState(true);
   const [jsonData, setJsonData] = useState([]);
   const [colNames, setColNames] = useState([]);
+  const [submitted, setSubmitted] = useState([false]);
+  const [closest, setClosest] = useState("");
+  const [zipHashT] = useState(zipHash);
 
   const fetchDataAsyncWrapper = async () => {
     try {
@@ -47,7 +51,18 @@ const AppProvider = (props) => {
 
   return (
     <Context.Provider
-      value={{ zipcode, setZipcode, jsonData, setJsonData, colNames, loading }}
+      value={{
+        zipcode,
+        setZipcode,
+        jsonData,
+        setJsonData,
+        setClosest,
+        zipHashT,
+        colNames,
+        loading,
+        closest,
+        setSubmitted,
+      }}
     >
       {props.children}
     </Context.Provider>

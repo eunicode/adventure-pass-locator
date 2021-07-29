@@ -67649,4 +67649,4 @@ const dist1D = [
   { "z1": 96161, "z2": 96109, "d": 49.16369441 },
   { "z1": 96161, "z2": 95981, "d": 49.1784015874 }
 ]
-export default dist1d;
+export default dist1D;

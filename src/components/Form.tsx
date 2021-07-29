@@ -1,13 +1,27 @@
 import React, { useState, useContext } from "react";
 import { Context } from "../Context";
+import { findVendors } from "../utils/data-processing";
 
 const Form = () => {
   const [zipcodeLoc, setZipcodeLoc] = useState("");
-  const { setJsonData } = useContext(Context);
+  const {
+    zipcode,
+    setZipcode,
+    jsonData,
+    setJsonData,
+    setClosest,
+    zipHashT,
+    setSubmitted,
+  } = useContext(Context);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     alert(`Submitting zipcode: ${zipcodeLoc}`);
+    setZipcode(zipcodeLoc);
+    let nearestVendor = findVendors(zipcodeLoc, zipHashT, jsonData);
+    console.log({ nearestVendor });
+    setClosest(nearestVendor);
+    setSubmitted(true);
   };
 
   return (
