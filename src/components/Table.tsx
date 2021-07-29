@@ -4,7 +4,7 @@ import TableHeader from "./TableHeader";
 
 const Table = () => {
   return (
-    <table>
+    <table style={{ marginTop: 20 }}>
       <TableHeader />
       <TableRow />
     </table>

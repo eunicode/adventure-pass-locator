@@ -25,7 +25,8 @@ The government [forest service website](https://www.fs.usda.gov/detailfull/r5/pa
 
 ## To do
 
-- Create graph class, graphs
+- Figure out why Prettier doesn't work on js files
+- Create vertex, graph class, vertices, graphs
 - Sorting algorithm: Timsort, Heapsort, Mergesort, Quicksort
 - Show 25 locations at a time, with arrows that allow users to see next 25.
 - Add type annotation

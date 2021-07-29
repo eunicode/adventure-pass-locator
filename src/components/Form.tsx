@@ -2,11 +2,12 @@ import React, { useState, useContext } from "react";
 import { Context } from "../Context";
 
 const Form = () => {
-  const [zipcode, setZipcode] = useState("");
+  const [zipcodeLoc, setZipcodeLoc] = useState("");
+  const { setJsonData } = useContext(Context);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    alert(`Submitting zipcode: ${zipcode}`);
+    alert(`Submitting zipcode: ${zipcodeLoc}`);
   };
 
   return (
@@ -16,8 +17,8 @@ const Form = () => {
         <input
           type="text"
           name=""
-          value={zipcode}
-          onChange={(e) => setZipcode(e.target.value)}
+          value={zipcodeLoc}
+          onChange={(e) => setZipcodeLoc(e.target.value)}
         />
       </label>
       {/* <button type="submit">Submit</button> */}
